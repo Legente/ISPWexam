@@ -2,25 +2,33 @@ package exam;
 
 //sonar-scanner.bat -D"sonar.organization=legente" -D"sonar.projectKey=Legente_ISPWexam" -D"sonar.sources=." -D"sonar.host.url=https://sonarcloud.io"
 
-public class Main {
+import java.util.*;
+
+class Main {
+
     public static void main(String[] args) {
-        int a = 100;
-        int b = 500;
-        print(a, b);
+        Scanner sc = new Scanner(System.in);
+        String str;
+
+        List<String> names = new ArrayList<>();
+        do {
+            Log.info("Please Enter a name (Write 'sort' to sort the list) : ");
+            str = sc.nextLine();
+            if (!"sort".equals(str)) {
+                names.add(str);
+                Log.info("Names entered: " + names);
+            }
+        } while (!"sort".equals(str));
+
+        sort(names);
+
+        Log.info("Names sorted: " + names);
     }
 
-    public static void print(int a, int b){
-        Log.info("Sommo i due numeri");
-        int c = a + b;
-        Log.info("Il risultato è " + c);
 
-        Log.info("Eseguo la sottrazione dei numeri ");
-        int d = a - b;
-        if (d<0){
-            Log.info("La somma è negativa " + d);
-        } else {
-            Log.info("La somma è positiva " + d);
-        }
-
+    public static void sort(List<String> names) {
+        names.sort(Collections.reverseOrder());
     }
+
+
 }
