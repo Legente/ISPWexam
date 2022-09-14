@@ -16,7 +16,7 @@ class Main {
             str = sc.nextLine();
             if (!"sort".equals(str)) {
                 names.add(str);
-                Log.info("Names entered: " + names);
+                System.out.println("Names entered: " + names);
             }
         } while (!"sort".equals(str));
 
