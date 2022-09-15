@@ -8,26 +8,24 @@ class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String str;
+        int n;
 
-        List<String> names = new ArrayList<>();
         do {
-            Log.info("Please Enter a name (Write 'sort' to sort the list) : ");
-            str = sc.nextLine();
-            if (!"sort".equals(str)) {
-                names.add(str);
-                Log.info("Names entered: " + names);
-            }
-        } while (!"sort".equals(str));
+            Log.info("Please Enter a number (not 0): ");
+            n = sc.nextInt();
+        } while (n == 0);
 
-        sort(names);
 
-        Log.info("Names sorted: " + names);
+        if (checkNumber(n)) {
+            Log.info("Il numero " + n + " è multiplo di 2");
+        } else {
+            Log.info("Il numero " + n + " NON è multiplo di 2");
+        }
     }
 
 
-    public static void sort(List<String> names) {
-        names.sort(Collections.reverseOrder());
+    public static boolean checkNumber(int n) {
+        return n % 2 == 0;
     }
 
 
